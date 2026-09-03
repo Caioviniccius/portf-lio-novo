@@ -497,6 +497,34 @@ button:focus-visible {
     color: #fff;
 }
 
+.card-projeto__capa--barbearia {
+    background: linear-gradient(135deg, #050505, #1a1a1a 65%, #3a3a38);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Montserrat', var(--font-primaria), sans-serif;
+    font-weight: 800;
+    font-size: 1.15rem;
+    letter-spacing: 2px;
+    color: #f6f5f2;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 12px;
+}
+
+.card-projeto__capa--dentista {
+    background: linear-gradient(135deg, #0e2a4d, #1c5fa8 60%, #4fc3f7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-primaria);
+    font-size: 1.05rem;
+    letter-spacing: .5px;
+    color: #fff;
+    text-align: center;
+    padding: 12px;
+}
+
 .card-projeto__selo {
     align-self: flex-start;
     font-size: .7rem;
