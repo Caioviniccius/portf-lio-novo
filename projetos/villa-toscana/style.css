@@ -352,8 +352,9 @@
   }
 
   @media (max-width: 640px){
-    .cat-tabs{justify-content:flex-start; overflow-x:auto; flex-wrap:nowrap; padding-bottom:10px;}
-    .cat-tab{flex:none;}
+    .cat-tabs{justify-content:center; flex-wrap:wrap; gap:8px; row-gap:8px;}
+    .cat-tab{padding:9px 13px; font-size:0.76rem; gap:6px;}
+    .cat-tab svg{width:15px; height:15px;}
 
     .menu-grid{
       display:flex; gap:12px; overflow-x:auto; scroll-snap-type:x proximity;
@@ -361,17 +362,17 @@
     }
     .menu-grid .item-card{flex:0 0 158px; scroll-snap-align:start;}
 
-    .cat-tabs, .menu-grid{
+    .menu-grid{
       scrollbar-width:thin;
       scrollbar-color:var(--amber-bright) transparent;
     }
-    .cat-tabs::-webkit-scrollbar, .menu-grid::-webkit-scrollbar{height:6px;}
-    .cat-tabs::-webkit-scrollbar-track, .menu-grid::-webkit-scrollbar-track{background:var(--bg-card); border-radius:999px;}
-    .cat-tabs::-webkit-scrollbar-thumb, .menu-grid::-webkit-scrollbar-thumb{
+    .menu-grid::-webkit-scrollbar{height:6px;}
+    .menu-grid::-webkit-scrollbar-track{background:var(--bg-card); border-radius:999px;}
+    .menu-grid::-webkit-scrollbar-thumb{
       background:linear-gradient(90deg, var(--amber), var(--red-bright));
       border-radius:999px; border:1px solid rgba(0,0,0,0.2);
     }
-    .cat-tabs::-webkit-scrollbar-thumb:hover, .menu-grid::-webkit-scrollbar-thumb:hover{
+    .menu-grid::-webkit-scrollbar-thumb:hover{
       background:linear-gradient(90deg, var(--amber-bright), var(--red-bright));
     }
 
