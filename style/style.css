@@ -525,6 +525,19 @@ button:focus-visible {
     padding: 12px;
 }
 
+.card-projeto__capa--pizzaria {
+    background: linear-gradient(135deg, #1a3d1f, #2f7a3d 55%, #c62828);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-primaria);
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    color: #fff;
+    text-align: center;
+    padding: 12px;
+}
+
 .card-projeto__selo {
     align-self: flex-start;
     font-size: .7rem;
