@@ -1,0 +1,131 @@
+/* ==========================================================================
+   ANIMAÇÕES — reveals, microinterações, estados
+   Intensidade por contexto:
+     Hero: entrada elegante (reveal) + ilustração estática de forte apelo visual
+     Cardápio: sutil (reveal leve + hover)
+     Carrinho: responsivo (feedback imediato)
+     Botões: microinterações
+     Seções: reveal elegante
+   ========================================================================== */
+
+/* Reveal genérico de seção: aplicado via IntersectionObserver, que adiciona
+   .is-in-view ao elemento. Mantém o layout estável (sem afetar fluxo). */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity var(--dur-slow) var(--ease-out), transform var(--dur-slow) var(--ease-out);
+}
+
+.reveal.is-in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Reveal em cascata para grids (cards de produto, destaques, avaliações) */
+.reveal-stagger > * {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity var(--dur-base) var(--ease-out), transform var(--dur-base) var(--ease-out);
+}
+
+.reveal-stagger.is-in-view > * {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-stagger.is-in-view > *:nth-child(1) { transition-delay: 0ms; }
+.reveal-stagger.is-in-view > *:nth-child(2) { transition-delay: 60ms; }
+.reveal-stagger.is-in-view > *:nth-child(3) { transition-delay: 120ms; }
+.reveal-stagger.is-in-view > *:nth-child(4) { transition-delay: 180ms; }
+.reveal-stagger.is-in-view > *:nth-child(5) { transition-delay: 240ms; }
+.reveal-stagger.is-in-view > *:nth-child(6) { transition-delay: 300ms; }
+.reveal-stagger.is-in-view > *:nth-child(n + 7) { transition-delay: 340ms; }
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .reveal-stagger > * {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* Pulso curto ao adicionar produto (feedback direto, não decorativo) */
+@keyframes pulse-once {
+  0% {
+    transform: scale(1);
+  }
+  40% {
+    transform: scale(1.12);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.pulse-once {
+  animation: pulse-once 320ms var(--ease-out);
+}
+
+/* Badge do carrinho: destaca quando a contagem muda */
+@keyframes count-bump {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.4);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.count-bump {
+  animation: count-bump 380ms var(--ease-out);
+}
+
+/* Entrada de item no carrinho */
+@keyframes item-in {
+  from {
+    opacity: 0;
+    transform: translateX(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.cart-item.is-entering {
+  animation: item-in var(--dur-base) var(--ease-out);
+}
+
+/* Saída de item removido do carrinho */
+@keyframes item-out {
+  from {
+    opacity: 1;
+    transform: scale(1);
+    max-height: 200px;
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.9);
+    max-height: 0;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.cart-item.is-leaving {
+  animation: item-out var(--dur-base) var(--ease-in-out) forwards;
+  overflow: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pulse-once,
+  .count-bump,
+  .cart-item.is-entering,
+  .cart-item.is-leaving {
+    animation: none !important;
+  }
+}

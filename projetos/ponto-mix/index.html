@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Ponto Mix — Hamburgueria Artesanal | Peça pelo WhatsApp</title>
+<meta name="description" content="Hambúrgueres artesanais, combos, porções e sobremesas da Ponto Mix. Monte seu pedido online e finalize direto pelo WhatsApp. Entrega, retirada ou consumo no local." />
+<meta name="keywords" content="hamburgueria, hambúrguer artesanal, lanches, delivery de hambúrguer, combo, Ponto Mix" />
+<meta name="theme-color" content="#000000" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Ponto Mix — Hamburgueria Artesanal" />
+<meta property="og:description" content="Hambúrgueres artesanais, combos e porções. Peça pelo WhatsApp em poucos cliques." />
+<meta property="og:image" content="images/og-image.jpg" /><!-- TODO: SUBSTITUIR PELO DADO REAL -->
+<meta property="og:locale" content="pt_BR" />
+
+<link rel="icon" type="image/svg+xml" href="images/logo/logo-ponto-mix.svg" />
+
+<!-- Fontes: Permanent Marker (impacto/título, estilo marcador/pincel) + Plus Jakarta Sans (leitura/UI).
+     Auto-hospedadas em fonts/ (ver css/fonts.css) — não dependem mais do Google Fonts,
+     então o site carrega normalmente mesmo em redes que bloqueiam domínios do Google. -->
+<link rel="preload" href="fonts/permanent-marker-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="preload" href="fonts/plus-jakarta-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="stylesheet" href="css/fonts.css" />
+
+<link rel="stylesheet" href="css/style.css" />
+<link rel="stylesheet" href="css/components.css" />
+<link rel="stylesheet" href="css/animations.css" />
+</head>
+<body>
+<a href="#main-content" class="skip-link">Pular para o conteúdo</a>
+<div class="grain-overlay" aria-hidden="true"></div>
+
+<!-- ==================== SPRITE DE ÍCONES ====================
+     Conjunto de ícones de linha, desenhados especificamente para a Ponto Mix
+     (sem emojis, sem biblioteca de ícones de terceiros). Cada <symbol> é
+     definido uma única vez aqui; o resto do site referencia via
+     <svg class="icon-svg"><use href="#icon-ID"></use></svg> — estático no
+     HTML ou gerado dinamicamente pelo helper window.PMIcons.icon() (veja
+     js/modules/icons.js). Bloco puramente estrutural: fica oculto e fora da
+     árvore de acessibilidade. -->
+<svg id="icon-sprite" aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden" focusable="false">
+  <defs>
+    <symbol id="icon-cart" viewBox="0 0 24 24">
+      <path d="M4 8h16l-1.4 11.2a2 2 0 0 1-2 1.8H7.4a2 2 0 0 1-2-1.8L4 8Z"/>
+      <path d="M8 8V6.5a4 4 0 0 1 8 0V8"/>
+    </symbol>
+    <symbol id="icon-truck" viewBox="0 0 24 24">
+      <rect x="2.5" y="7" width="10" height="9" rx="0.5"/>
+      <path d="M12.5 10.5h4l3.5 3.5v2.5h-7.5z"/>
+      <circle cx="6.5" cy="18.5" r="1.6"/>
+      <circle cx="16.5" cy="18.5" r="1.6"/>
+    </symbol>
+    <symbol id="icon-pin" viewBox="0 0 24 24">
+      <path d="M12 21s7-6.7 7-12.2A7 7 0 0 0 5 8.8C5 14.3 12 21 12 21Z"/>
+      <circle cx="12" cy="8.8" r="2.4"/>
+    </symbol>
+    <symbol id="icon-dine" viewBox="0 0 24 24">
+      <path d="M7 2v7a1.5 1.5 0 0 0 3 0V2"/>
+      <path d="M8.5 9v13"/>
+      <path d="M16 2c-1.4 0-2.5 1.8-2.5 4.5S14.6 11 16 11v11"/>
+    </symbol>
+    <symbol id="icon-burger" viewBox="0 0 24 24">
+      <path d="M4.5 10.5c0-3.3 3.4-6 7.5-6s7.5 2.7 7.5 6"/>
+      <rect x="3" y="11.2" width="18" height="2.2" rx="1.1"/>
+      <path d="M3.5 15.2h17"/>
+      <path d="M4.5 17.6c0 2 3.4 3.4 7.5 3.4s7.5-1.4 7.5-3.4"/>
+    </symbol>
+    <symbol id="icon-flame" viewBox="0 0 24 24">
+      <path d="M12 2.5c1.2 3-2.6 4.2-2.6 7.3a2.6 2.6 0 0 0 5.2 0c0-.8-.6-1.5-.6-1.5 1.7.9 2.8 2.7 2.8 4.6a5.2 5.2 0 0 1-10.4 0c0-4.4 3.4-5.6 5.6-10.4Z"/>
+    </symbol>
+    <symbol id="icon-fries" viewBox="0 0 24 24">
+      <path d="M5.5 9h13l-1.6 10.8a1.4 1.4 0 0 1-1.4 1.2H8.5a1.4 1.4 0 0 1-1.4-1.2L5.5 9Z"/>
+      <path d="M9 9V5M12 9V4M15 9V5"/>
+    </symbol>
+    <symbol id="icon-cup" viewBox="0 0 24 24">
+      <path d="M7 8h10l-1.1 11.2a2 2 0 0 1-2 1.8h-3.8a2 2 0 0 1-2-1.8L7 8Z"/>
+      <path d="M8.7 8 7.5 3h9l-1.2 5"/>
+      <path d="M13 2.2v3.6"/>
+    </symbol>
+    <symbol id="icon-dessert" viewBox="0 0 24 24">
+      <path d="M7.5 11a4.5 4.5 0 0 1 9 0"/>
+      <path d="M5.5 11h13l-1.5 8.3a2 2 0 0 1-2 1.7H9a2 2 0 0 1-2-1.7L5.5 11Z"/>
+      <path d="M12 3v3.2"/>
+    </symbol>
+    <symbol id="icon-pizza" viewBox="0 0 24 24">
+      <path d="M3.5 6.5 12 21.5 20.5 6.5a19 19 0 0 1-17 0Z"/>
+      <path d="M8.5 9.3a12 12 0 0 0 7 0"/>
+      <circle cx="10.5" cy="12.5" r="0.9" fill="currentColor" stroke="none"/>
+      <circle cx="14" cy="15.5" r="0.9" fill="currentColor" stroke="none"/>
+    </symbol>
+    <symbol id="icon-wine" viewBox="0 0 24 24">
+      <path d="M7 3h10l-1 7a4 4 0 0 1-8 0L7 3Z"/>
+      <path d="M12 14v6"/>
+      <path d="M8.5 21h7"/>
+    </symbol>
+    <symbol id="icon-pastel" viewBox="0 0 24 24">
+      <path d="M4 11a8 8 0 0 1 16 0"/>
+      <path d="M4 11q1.4 2 2.8 0t2.8 0 2.8 0 2.8 0 2.8 0"/>
+    </symbol>
+    <symbol id="icon-chat" viewBox="0 0 24 24">
+      <path d="M4 5.5h16v10H9l-4 3.5v-3.5H4z"/>
+      <circle cx="8.5" cy="10.5" r="1" fill="currentColor" stroke="none"/>
+      <circle cx="12" cy="10.5" r="1" fill="currentColor" stroke="none"/>
+      <circle cx="15.5" cy="10.5" r="1" fill="currentColor" stroke="none"/>
+    </symbol>
+    <symbol id="icon-camera" viewBox="0 0 24 24">
+      <rect x="3" y="5" width="18" height="14" rx="3"/>
+      <circle cx="12" cy="12" r="4"/>
+      <circle cx="17.5" cy="8.5" r="0.8" fill="currentColor" stroke="none"/>
+    </symbol>
+    <symbol id="icon-chef" viewBox="0 0 24 24">
+      <path d="M6.5 21h11"/>
+      <path d="M8 21v-6.2"/>
+      <path d="M16 21v-6.2"/>
+      <path d="M5.5 10.2a3.5 3.5 0 0 1 3.6-3.7 3 3 0 0 1 2.9-2.2 3 3 0 0 1 2.9 2.2 3.5 3.5 0 0 1 3.6 3.7c0 2-1.8 3.3-2.3 4.6H7.8c-.5-1.3-2.3-2.6-2.3-4.6Z"/>
+    </symbol>
+    <symbol id="icon-close" viewBox="0 0 24 24">
+      <path d="M6 6l12 12"/>
+      <path d="M18 6 6 18"/>
+    </symbol>
+    <symbol id="icon-arrow-left" viewBox="0 0 24 24">
+      <path d="M19 12H5"/>
+      <path d="M11 6l-6 6 6 6"/>
+    </symbol>
+    <symbol id="icon-arrow-right" viewBox="0 0 24 24">
+      <path d="M5 12h14"/>
+      <path d="M13 6l6 6-6 6"/>
+    </symbol>
+    <symbol id="icon-check" viewBox="0 0 24 24">
+      <path d="M5 13l4 4L19 7"/>
+    </symbol>
+    <symbol id="icon-star" viewBox="0 0 24 24">
+      <path d="M12 3.3l2.6 5.4 5.9.7-4.3 4.1 1.1 5.9-5.3-2.9-5.3 2.9 1.1-5.9-4.3-4.1 5.9-.7Z"/>
+    </symbol>
+  </defs>
+</svg>
+
+<!-- ==================== HEADER ==================== -->
+<header class="header" id="site-header">
+  <div class="container header__inner">
+    <a href="#inicio" class="header__logo" aria-label="Ponto Mix — início">
+      <img src="images/logo/logo-ponto-mix.svg" alt="" width="140" height="32" />
+    </a>
+
+    <nav class="header__nav" id="main-nav" aria-label="Navegação principal">
+      <a href="#inicio">Início</a>
+      <a href="#cardapio">Cardápio</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#promocoes">Promoções</a>
+      <a href="#contato">Contato</a>
+    </nav>
+
+    <div class="header__actions">
+      <button class="header__cart-btn" id="open-cart-btn" aria-label="Abrir carrinho de compras">
+        <span aria-hidden="true"><svg class="icon-svg" aria-hidden="true" focusable="false"><use href="#icon-cart"></use></svg></span>
+        <span>Carrinho</span>
+        <span class="header__cart-count" id="header-cart-count" hidden>0</span>
+      </button>
+      <button class="header__menu-toggle" id="menu-toggle" aria-label="Abrir menu de navegação" aria-expanded="false" aria-controls="main-nav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main-content">
+
+  <!-- ==================== HERO ==================== -->
+  <section class="hero" id="inicio">
+    <div class="container hero__inner">
+      <div class="hero__content reveal">
+        <span class="hero__badge"><span class="dot" aria-hidden="true"></span> Aberto agora · peça pelo WhatsApp</span>
+        <h1>A fome bate, <span class="gold">a gente destrói.</span></h1>
+        <p class="hero__sub">
+          Sem regras. Sem talher. Só o verdadeiro sabor da rua — hambúrgueres
+          artesanais montados na chapa, na hora, do jeito que uma hamburgueria
+          de verdade deve ser.
+        </p>
+        <div class="hero__ctas">
+          <div class="brush-button-wrapper">
+            <a href="#cardapio" class="brush-btn" aria-label="Manda ver — ir para o cardápio">
+              <picture>
+                <source type="image/webp" srcset="images/ui/botao-manda-ver.webp" />
+                <img src="images/ui/botao-manda-ver.png" alt="" class="brush-btn__bg" width="700" height="366" loading="eager" />
+              </picture>
+            </a>
+          </div>
+        </div>
+        <div class="hero__indicators">
+          <span class="hero__indicator"><span class="emoji"><svg class="icon-svg" aria-hidden="true" focusable="false"><use href="#icon-truck"></use></svg></span> Entrega</span>
+          <span class="hero__indicator"><span class="emoji"><svg class="icon-svg" aria-hidden="true" focusable="false"><use href="#icon-pin"></use></svg></span> Retirada no local</span>
+          <span class="hero__indicator"><span class="emoji"><svg class="icon-svg" aria-hidden="true" focusable="false"><use href="#icon-dine"></use></svg></span> Comer no local</span>
+        </div>
+      </div>
+
+      <div class="hero__visual reveal">
+        <!-- Foto do produto (banner enviado pelo cliente, recortado para manter
+             apenas a composição do hambúrguer + batata + copo com a marca —
+             os textos do banner original foram recriados como HTML de verdade
+             em .hero__content, em vez de ficarem presos em pixels).
+             Para trocar a foto no futuro, basta substituir os arquivos em
+             images/hero/. -->
+        <picture>
+          <source
+            type="image/webp"
+            srcset="images/hero/hero-burger-600.webp 600w, images/hero/hero-burger-800.webp 800w, images/hero/hero-burger.webp 1618w"
+            sizes="(max-width: 940px) 90vw, 45vw" />
+          <source
+            type="image/jpeg"
+            srcset="images/hero/hero-burger-600.jpg 600w, images/hero/hero-burger-800.jpg 800w, images/hero/hero-burger.jpg 1618w"
+            sizes="(max-width: 940px) 90vw, 45vw" />
+          <img
+            class="hero__illustration"
+            src="images/hero/hero-burger-800.jpg"
+            width="1618" height="972"
+            alt="Hambúrguer artesanal duplo com bacon e batata frita Ponto Mix"
+            loading="eager" fetchpriority="high" />
+        </picture>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== CARDÁPIO ==================== -->
+  <section id="cardapio" aria-label="Cardápio">
+    <nav class="menu-nav" aria-label="Categorias do cardápio">
+      <div class="container">
+        <div class="menu-nav__scroller" id="menu-nav-scroller" role="tablist"></div>
+      </div>
+    </nav>
+
+    <div class="container">
+      <div class="section-head" style="padding-top:var(--sp-10)">
+        <span class="section-kicker">Cardápio</span>
+        <h2>O coração da Ponto Mix</h2>
+        <p class="text-muted">Escolha, personalize e monte seu pedido. Adicione quantos produtos quiser antes de finalizar.</p>
+      </div>
+      <div id="menu-categories"></div>
+    </div>
+  </section>
+
+  <!-- ==================== SOBRE ==================== -->
+  <section class="section section--alt" id="sobre">
+    <div class="container about reveal">
+      <div class="about__visual">
+        <!-- TODO: SUBSTITUIR PELO DADO REAL — foto do estabelecimento/equipe -->
+        <div class="img-placeholder" style="font-size:4rem;"><svg class="icon-svg" aria-hidden="true" focusable="false"><use href="#icon-chef"></use></svg></div>
+      </div>
+      <div>
+        <span class="section-kicker">Sobre a Ponto Mix</span>
+        <h2>Hambúrguer artesanal, feito com atenção em cada detalhe</h2>
+        <p class="text-muted" style="margin-top:var(--sp-4)">
+          Na Ponto Mix, cada hambúrguer é montado na chapa com ingredientes selecionados
+          e o cuidado de quem entende que um bom lanche começa no preparo e termina no
+          sabor. Da escolha da carne ao ponto certo do queijo derretido, buscamos a
+          experiência de uma hamburgueria artesanal de verdade — pensada para quem
+          valoriza qualidade, sabor e atendimento em cada pedido.
+        </p>
+        <div class="about__stats">
+          <div class="about__stat">
+            <strong id="stat-products">—</strong>
+            <span>Itens no cardápio</span>
+          </div>
+          <div class="about__stat">
+            <strong>100%</strong>
+            <span>Montado na chapa</span>
+          </div>
+          <div class="about__stat">
+            <strong>3</strong>
+            <span>Formas de pedir</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== DESTAQUES ==================== -->
+  <section class="section" aria-label="Destaques">
+    <div class="container">
+      <div class="section-head section-head--center">
+        <span class="section-kicker">Destaques</span>
+        <h2>Feito para todo tipo de fome</h2>
+      </div>
+      <div class="highlights-grid reveal-stagger">
+        <div class="highlight-card">
+          <span class="icon"><svg class="icon-svg" aria-hidden="true" focusable="false"><use href="#icon-burger"></use></svg></span>
+          <h4>Hambúrgueres artesanais</h4>
+          <p class="text-muted">Montados na hora, com ingredientes selecionados e ponto perfeito.</p>
+        </div>
+        <div class="highlight-card">
+          <span class="icon"><svg class="icon-svg" aria-hidden="true" focusable="false"><use href="#icon-flame"></use></svg></span>
+          <h4>Combos</h4>
+          <p class="text-muted">Mais lanche, mais economia — ideal para dividir ou matar a fome sozinho.</p>
+        </div>
+        <div class="highlight-card">
+          <span class="icon"><svg class="icon-svg" aria-hidden="true" focusable="false"><use href="#icon-fries"></use></svg></span>
+          <h4>Porções</h4>
+          <p class="text-muted">Acompanhamentos crocantes para completar o pedido.</p>
+        </div>
+        <div class="highlight-card">
+          <span class="icon"><svg class="icon-svg" aria-hidden="true" focusable="false"><use href="#icon-cup"></use></svg></span>
+          <h4>Bebidas</h4>
+          <p class="text-muted">Refrigerantes, sucos e água geladinhos para acompanhar.</p>
+        </div>
+        <div class="highlight-card">
+          <span class="icon"><svg class="icon-svg" aria-hidden="true" focusable="false"><use href="#icon-dessert"></use></svg></span>
+          <h4>Sobremesas</h4>
+          <p class="text-muted">Para fechar a refeição com chave de ouro.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== PROMOÇÕES ==================== -->
+  <section class="section section--alt" id="promocoes" aria-label="Promoções">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-kicker">Promoções</span>
+        <h2>Ofertas da casa</h2>
+      </div>
+      <div id="promotions-list" class="reveal"></div>
+    </div>
+  </section>
+
+  <!-- ==================== AVALIAÇÕES ==================== -->
+  <section class="section" aria-label="Avaliações de clientes">
+    <div class="container">
+      <div class="section-head section-head--center">
+        <span class="section-kicker">Avaliações</span>
+        <h2>O que dizem sobre a Ponto Mix</h2>
+      </div>
+      <div id="reviews-list" class="reviews-grid reveal-stagger"></div>
+    </div>
+  </section>
+
+  <!-- ==================== CONTATO ==================== -->
+  <section class="section section--alt" id="contato" aria-label="Contato">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-kicker">Contato</span>
+        <h2>Fale com a gente</h2>
+      </div>
+      <div class="contact-grid reveal-stagger">
+        <a class="contact-card" id="contact-whatsapp" href="#" target="_blank" rel="noopener">
+          <span class="icon"><svg class="icon-svg" aria-hidden="true" focusable="false"><use href="#icon-chat"></use></svg></span>
+          <h4>WhatsApp</h4>
+          <p class="text-muted" id="contact-whatsapp-number">—</p>
+        </a>
+        <a class="contact-card" id="contact-instagram" href="#" target="_blank" rel="noopener">
+          <span class="icon"><svg class="icon-svg" aria-hidden="true" focusable="false"><use href="#icon-camera"></use></svg></span>
+          <h4>Instagram</h4>
+          <p class="text-muted" id="contact-instagram-handle">—</p>
+        </a>
+        <div class="contact-card">
+          <span class="icon"><svg class="icon-svg" aria-hidden="true" focusable="false"><use href="#icon-pin"></use></svg></span>
+          <h4>Endereço</h4>
+          <p class="text-muted" id="contact-address">—</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ==================== FOOTER ==================== -->
+<footer class="footer">
+  <div class="container footer__grid">
+    <div class="footer__brand">
+      <span class="footer__logo">PONTO<span class="text-gold">MIX</span></span>
+      <p class="text-muted" style="font-size:var(--fs-sm)">Hambúrgueres artesanais montados na chapa, do jeito que uma hamburgueria de verdade deve ser.</p>
+    </div>
+    <div class="footer__col">
+      <h4>Navegação</h4>
+      <ul>
+        <li><a href="#cardapio">Cardápio</a></li>
+        <li><a href="#sobre">Sobre nós</a></li>
+        <li><a href="#promocoes">Promoções</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </div>
+    <div class="footer__col">
+      <h4>Formas de pedido</h4>
+      <ul>
+        <li><svg class="icon-svg" aria-hidden="true" focusable="false"><use href="#icon-truck"></use></svg> Entrega</li>
+        <li><svg class="icon-svg" aria-hidden="true" focusable="false"><use href="#icon-pin"></use></svg> Retirada no local</li>
+        <li><svg class="icon-svg" aria-hidden="true" focusable="false"><use href="#icon-dine"></use></svg> Comer no local</li>
+      </ul>
+    </div>
+    <div class="footer__col">
+      <h4>Contato</h4>
+      <ul>
+        <li><a id="footer-whatsapp" href="#" target="_blank" rel="noopener">WhatsApp</a></li>
+        <li><a id="footer-instagram" href="#" target="_blank" rel="noopener">Instagram</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="container footer__bottom">
+    <span>© <span id="footer-year"></span> Ponto Mix. Todos os direitos reservados.</span>
+    <span>Site desenvolvido por <a href="#" style="text-decoration:underline">TODO: SUBSTITUIR PELO DADO REAL</a></span>
+  </div>
+</footer>
+
+<!-- ==================== BOTÃO FLUTUANTE DO CARRINHO (mobile) ==================== -->
+<button class="cart-fab" id="cart-fab" aria-label="Abrir carrinho">
+  <span aria-hidden="true"><svg class="icon-svg" aria-hidden="true" focusable="false"><use href="#icon-cart"></use></svg></span>
+  <span id="cart-fab-count">Carrinho (0)</span>
+  <span class="cart-fab__total" id="cart-fab-total">R$ 0,00</span>
+</button>
+
+<!-- ==================== MODAL DE PRODUTO ==================== -->
+<div class="modal-overlay" id="product-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="product-modal-title" inert>
+  <div class="product-modal" id="product-modal">
+    <div class="product-modal__media">
+      <button class="icon-btn product-modal__close" id="close-product-modal" aria-label="Fechar"><svg class="icon-svg" aria-hidden="true" focusable="false"><use href="#icon-close"></use></svg></button>
+      <div id="product-modal-media-inner" style="width:100%;height:100%"></div>
+    </div>
+    <div class="product-modal__body">
+      <div class="product-modal__title-row">
+        <div>
+          <h3 id="product-modal-title">Produto</h3>
+          <p class="product-modal__desc text-muted" id="product-modal-desc"></p>
+        </div>
+      </div>
+      <p class="product-modal__ingredients" id="product-modal-ingredients"></p>
+
+      <div id="product-modal-addons"></div>
+
+      <div>
+        <p class="modal-section-title">Observações</p>
+        <div class="notes-chips" id="product-modal-notes-chips"></div>
+        <div class="field" style="margin-bottom:0">
+          <label for="product-modal-notes-text" class="visually-hidden">Observações adicionais</label>
+          <textarea id="product-modal-notes-text" placeholder="Alguma observação? (opcional)"></textarea>
+        </div>
+      </div>
+    </div>
+    <div class="product-modal__footer">
+      <div class="qty-stepper">
+        <button type="button" id="product-modal-qty-dec" aria-label="Diminuir quantidade">−</button>
+        <output id="product-modal-qty-value">1</output>
+        <button type="button" id="product-modal-qty-inc" aria-label="Aumentar quantidade">+</button>
+      </div>
+      <span class="product-modal__total" id="product-modal-total">R$ 0,00</span>
+      <button class="btn btn-primary" id="product-modal-add-btn">Adicionar</button>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== CARRINHO (DRAWER) ==================== -->
+<div class="cart-drawer-overlay" id="cart-drawer-overlay"></div>
+<aside class="cart-drawer" id="cart-drawer" aria-label="Carrinho de compras" inert>
+  <div class="cart-drawer__header">
+    <h3>Seu carrinho</h3>
+    <button class="icon-btn" id="close-cart-btn" aria-label="Fechar carrinho"><svg class="icon-svg" aria-hidden="true" focusable="false"><use href="#icon-close"></use></svg></button>
+  </div>
+  <div class="cart-drawer__items" id="cart-items-container"></div>
+  <div class="cart-drawer__footer" id="cart-drawer-footer">
+    <div class="cart-summary-row">
+      <span>Subtotal</span>
+      <span id="cart-subtotal">R$ 0,00</span>
+    </div>
+    <div class="cart-summary-row total">
+      <span>Total</span>
+      <span class="value" id="cart-total">R$ 0,00</span>
+    </div>
+    <button class="btn btn-primary btn-block" id="go-to-checkout-btn">Finalizar Pedido</button>
+    <button class="btn btn-ghost btn-block" id="continue-shopping-btn">Continuar comprando</button>
+  </div>
+</aside>
+
+<!-- ==================== CHECKOUT ==================== -->
+<div class="checkout-overlay" id="checkout-overlay" role="dialog" aria-modal="true" aria-label="Finalizar pedido" inert>
+  <div class="checkout-header">
+    <button class="icon-btn" id="checkout-back-btn" aria-label="Voltar"><svg class="icon-svg" aria-hidden="true" focusable="false"><use href="#icon-arrow-left"></use></svg></button>
+    <div class="checkout-steps" id="checkout-steps">
+      <span class="step" data-step="1">1. Modalidade</span>
+      <span class="step" data-step="2">2. Seus dados</span>
+      <span class="step" data-step="3">3. Revisão</span>
+    </div>
+  </div>
+
+  <div class="checkout-body">
+    <!-- ETAPA 1: MODALIDADE -->
+    <div class="checkout-panel" data-panel="1">
+      <h2 style="font-size:var(--fs-2xl)">Como você quer receber seu pedido?</h2>
+      <div class="order-type-grid" id="order-type-grid"></div>
+    </div>
+
+    <!-- ETAPA 2: DADOS (conteúdo gerado dinamicamente conforme modalidade) -->
+    <div class="checkout-panel" data-panel="2">
+      <h2 style="font-size:var(--fs-2xl)">Seus dados</h2>
+      <form id="checkout-form" novalidate></form>
+    </div>
+
+    <!-- ETAPA 3: RESUMO -->
+    <div class="checkout-panel" data-panel="3">
+      <h2 style="font-size:var(--fs-2xl)">Revise seu pedido</h2>
+      <div class="summary-card">
+        <p class="modal-section-title" style="margin-bottom:var(--sp-2)">Itens</p>
+        <div id="checkout-summary-items"></div>
+      </div>
+      <div class="summary-card">
+        <div class="cart-summary-row"><span>Subtotal</span><span id="checkout-summary-subtotal">R$ 0,00</span></div>
+        <div class="cart-summary-row"><span id="checkout-summary-fee-label">Taxa de entrega</span><span id="checkout-summary-fee">A combinar</span></div>
+        <div class="cart-summary-row total"><span>Total</span><span class="value" id="checkout-summary-total">R$ 0,00</span></div>
+      </div>
+      <div class="summary-card">
+        <p class="modal-section-title" style="margin-bottom:var(--sp-2)">Seus dados</p>
+        <div id="checkout-summary-customer" class="text-muted" style="font-size:var(--fs-sm)"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="checkout-footer">
+    <button class="btn btn-secondary" id="checkout-prev-btn">Voltar</button>
+    <button class="btn btn-primary" id="checkout-next-btn">Continuar</button>
+  </div>
+</div>
+
+<!-- ==================== TOAST ==================== -->
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<!-- ==================== SCRIPTS ==================== -->
+<script src="js/data/store-config.js"></script>
+<script src="js/data/menu-data.js"></script>
+
+<script src="js/modules/utils.js"></script>
+<script src="js/modules/icons.js"></script>
+<script src="js/modules/cart.js"></script>
+<script src="js/modules/menu-render.js"></script>
+<script src="js/modules/product-modal.js"></script>
+<script src="js/modules/cart-ui.js"></script>
+<script src="js/modules/checkout.js"></script>
+<script src="js/modules/whatsapp.js"></script>
+<script src="js/modules/reveal.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

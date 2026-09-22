@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 60" width="260" height="60" role="img" aria-label="Ponto Mix">
+  <!-- TODO: SUBSTITUIR PELA LOGO REAL extraída do Instagram da Ponto Mix -->
+  <circle cx="30" cy="30" r="26" fill="#e3a730"/>
+  <path d="M16 34 C16 24 22 18 30 18 C38 18 44 24 44 34" stroke="#000000" stroke-width="4" fill="none" stroke-linecap="round"/>
+  <line x1="14" y1="34" x2="46" y2="34" stroke="#000000" stroke-width="4" stroke-linecap="round"/>
+  <text x="66" y="27" font-family="Arial, sans-serif" font-weight="900" font-size="20" fill="#faf6ec" letter-spacing="1">PONTO</text>
+  <text x="66" y="49" font-family="Arial, sans-serif" font-weight="900" font-size="20" fill="#e3a730" letter-spacing="2">MIX</text>
+</svg>
