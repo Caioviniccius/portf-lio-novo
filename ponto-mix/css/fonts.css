@@ -1,0 +1,70 @@
+/**
+ * ==========================================================================
+ * FONTES AUTO-HOSPEDADAS — Permanent Marker + Plus Jakarta Sans
+ * ==========================================================================
+ * Antes o site carregava essas fontes direto do Google Fonts
+ * (fonts.googleapis.com). Agora os arquivos .woff2 ficam aqui dentro do
+ * próprio site (pasta `fonts/`), então a página funciona 100% mesmo em
+ * redes que bloqueiam domínios do Google — e carrega um pouco mais rápido,
+ * já que o navegador não precisa abrir uma conexão extra com outro domínio.
+ *
+ * Os arquivos vieram do Fontsource (https://fontsource.org), que distribui
+ * os mesmos arquivos do Google Fonts com a licença original preservada:
+ * - Permanent Marker: licença Apache 2.0 (ver fonts/licenses/LICENSE-permanent-marker.txt)
+ * - Plus Jakarta Sans: licença SIL Open Font License 1.1 (ver fonts/licenses/LICENSE-plus-jakarta-sans.txt)
+ * Ambas são de código aberto e livres para uso comercial, sem custo e sem
+ * necessidade de atribuição visível no site.
+ *
+ * Para adicionar um peso/estilo novo (ex.: itálico), baixe o arquivo
+ * .woff2 correspondente do pacote @fontsource/<nome-da-fonte> (via npm) e
+ * adicione um novo bloco @font-face aqui.
+ * ==========================================================================
+ */
+
+@font-face {
+  font-family: "Permanent Marker";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../fonts/permanent-marker-latin-400-normal.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../fonts/plus-jakarta-sans-latin-400-normal.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("../fonts/plus-jakarta-sans-latin-500-normal.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("../fonts/plus-jakarta-sans-latin-600-normal.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("../fonts/plus-jakarta-sans-latin-700-normal.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("../fonts/plus-jakarta-sans-latin-800-normal.woff2") format("woff2");
+}

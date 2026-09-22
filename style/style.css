@@ -538,6 +538,21 @@ button:focus-visible {
     padding: 12px;
 }
 
+.card-projeto__capa--pontomix {
+    background: linear-gradient(135deg, #000000, #1a1a1a 55%, #e3a730);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.card-projeto__capa--pontomix img {
+    width: 64px;
+    height: 64px;
+    object-fit: contain;
+    filter: drop-shadow(0 8px 16px rgba(227, 167, 48, .35));
+}
+
 .card-projeto__selo {
     align-self: flex-start;
     font-size: .7rem;
