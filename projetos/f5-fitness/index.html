@@ -1,0 +1,693 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>F5 Fitness | Academia em Campo Formoso-BA</title>
+<meta name="description" content="F5 Fitness: academia em Campo Formoso-BA com 2 unidades. Veja horários, estrutura, planos e fale com a gente no WhatsApp.">
+<meta name="theme-color" content="#0B0D10">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --black:#0B0D10; --coal:#25282D; --coal-2:#16191D;
+  --orange:#FF5A00; --orange-hi:#FF7426;
+  --purple:#292047; --purple-hi:#3A2E63;
+  --gold:#FFB900; --white:#FFFFFF;
+  --mute:#A7AAB2; --line:rgba(255,255,255,.12);
+  --wrap:1240px; --gut:clamp(16px,4vw,40px);
+  --r-sm:6px; --r-md:14px; --r-lg:28px;
+  --ease:cubic-bezier(.2,.7,.1,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{background:var(--black);color:var(--white);font-family:"Archivo",system-ui,sans-serif;font-variation-settings:"wdth" 100;font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit}
+button{font:inherit;color:inherit;cursor:pointer;border:0;background:none}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:4px}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--gut)}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* Type */
+.display{font-variation-settings:"wdth" 125;font-weight:900;text-transform:uppercase;line-height:.9;letter-spacing:-.01em}
+.h2{font-variation-settings:"wdth" 125;font-weight:900;text-transform:uppercase;font-size:clamp(34px,5.4vw,68px);line-height:.95;letter-spacing:-.01em}
+.lead{font-size:clamp(17px,1.5vw,20px);color:#D6D8DD;max-width:56ch}
+.muted{color:var(--mute)}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;gap:.6em;padding:16px 26px;border-radius:12px;font-weight:700;font-size:16px;text-decoration:none;transition:transform .2s var(--ease),background .2s,color .2s,box-shadow .2s}
+.btn svg{width:20px;height:20px;flex:none}
+.btn-primary{background:var(--orange);color:var(--black)}
+.btn-primary:hover{background:var(--orange-hi);transform:translateY(-2px);box-shadow:0 10px 30px -10px rgba(255,90,0,.7)}
+.btn-ghost{border:1.5px solid rgba(255,255,255,.35)}
+.btn-ghost:hover{border-color:var(--white);background:rgba(255,255,255,.06)}
+.btn:active{transform:translateY(0) scale(.98)}
+
+/* Header */
+.header{position:fixed;inset:0 0 auto;z-index:50;transition:background .3s,border-color .3s;border-bottom:1px solid transparent}
+.header.scrolled{background:rgba(11,13,16,.86);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-color:var(--line)}
+.header .wrap{display:flex;align-items:center;justify-content:space-between;height:72px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;font-weight:800;font-variation-settings:"wdth" 115}
+.brand svg{width:44px;height:44px}
+.nav{display:flex;gap:28px;align-items:center}
+.nav a{text-decoration:none;font-size:15px;font-weight:500;color:#D6D8DD;transition:color .2s}
+.nav a:hover{color:var(--white)}
+.nav .btn{padding:11px 20px;font-size:15px;color:var(--black)}
+.menu-btn{display:none;width:44px;height:44px;border-radius:12px;border:1px solid var(--line);align-items:center;justify-content:center}
+.menu-btn span,.menu-btn span::before,.menu-btn span::after{display:block;width:18px;height:2px;background:#fff;position:relative;transition:transform .25s}
+.menu-btn span::before,.menu-btn span::after{content:"";position:absolute;left:0}
+.menu-btn span::before{top:-6px}.menu-btn span::after{top:6px}
+.menu-open .menu-btn span{background:transparent}
+.menu-open .menu-btn span::before{transform:translateY(6px) rotate(45deg)}
+.menu-open .menu-btn span::after{transform:translateY(-6px) rotate(-45deg)}
+
+/* Hero */
+.hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;padding:120px 0 56px;overflow:hidden;isolation:isolate}
+.hero-bg{position:absolute;inset:0;z-index:-2;background:#1a1410 center/cover no-repeat}
+.hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,13,16,.55) 0%,rgba(11,13,16,.35) 40%,rgba(11,13,16,.96) 88%),linear-gradient(90deg,rgba(11,13,16,.85) 0%,rgba(11,13,16,0) 65%)}
+.ring{position:absolute;z-index:-1;right:-20vw;top:42%;width:min(92vw,980px);aspect-ratio:1;translate:0 -50%;pointer-events:none;opacity:.95}
+.ring svg{width:100%;height:100%;display:block;will-change:transform}
+.hero-grid{display:grid;grid-template-columns:1fr;gap:36px;width:100%}
+.hero h1{font-size:clamp(52px,10.4vw,156px)}
+.hero h1 .line{display:block;overflow:hidden;padding-top:.12em;margin-top:-.12em}
+.hero h1 .line>span{display:block;transform:translateY(105%);animation:rise .9s var(--ease) forwards}
+.hero h1 .line:nth-child(2)>span{animation-delay:.08s}
+.hero h1 .line:nth-child(3)>span{animation-delay:.16s;color:var(--orange)}
+@keyframes rise{to{transform:none}}
+.hero-foot{display:flex;flex-wrap:wrap;gap:28px 48px;align-items:flex-end;justify-content:space-between;opacity:0;animation:fade .8s .45s var(--ease) forwards}
+@keyframes fade{to{opacity:1}}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}
+.status-pill{display:inline-flex;align-items:center;gap:10px;padding:10px 16px;border-radius:999px;background:rgba(11,13,16,.6);border:1px solid var(--line);font-size:14px;font-weight:600;backdrop-filter:blur(8px)}
+.dot{width:9px;height:9px;border-radius:50%;background:#7A7E87;flex:none}
+.dot.on{background:#39D97B;box-shadow:0 0 0 0 rgba(57,217,123,.6);animation:pulse 2s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 10px rgba(57,217,123,0)}100%{box-shadow:0 0 0 0 rgba(57,217,123,0)}}
+.hero-facts{display:flex;gap:36px;flex-wrap:wrap}
+.hero-facts div{border-left:2px solid var(--orange);padding-left:14px}
+.hero-facts b{display:block;font-size:28px;font-variation-settings:"wdth" 125;font-weight:900;line-height:1}
+.hero-facts span{font-size:14px;color:var(--mute)}
+
+/* Sections */
+section{position:relative}
+.sec{padding:clamp(80px,11vw,150px) 0}
+.sec-head{display:grid;grid-template-columns:1.1fr .9fr;gap:24px 64px;align-items:end;margin-bottom:clamp(40px,6vw,72px)}
+
+
+/* Estrutura */
+.gallery{display:grid;grid-template-columns:repeat(12,1fr);grid-auto-rows:clamp(160px,18vw,250px);gap:14px}
+.ph{position:relative;border-radius:var(--r-md);overflow:hidden;background:linear-gradient(135deg,var(--coal),var(--purple))}
+.ph img{width:100%;height:100%;object-fit:cover;color:transparent;transition:transform .8s var(--ease)}
+.ph:hover img{transform:scale(1.04)}
+.ph figcaption{position:absolute;left:0;right:0;bottom:0;padding:44px 18px 16px;background:linear-gradient(transparent,rgba(11,13,16,.88));font-weight:600;font-size:15px}
+.ph figcaption small{display:block;font-weight:400;color:#C9CBD1;font-size:13px}
+.g1{grid-column:span 7;grid-row:span 2}.g2{grid-column:span 5}.g3{grid-column:span 5}
+.g4{grid-column:span 4}.g5{grid-column:span 4}.g6{grid-column:span 4}
+
+/* Atendimento */
+.serve{background:var(--coal-2);border-block:1px solid var(--line)}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;counter-reset:s;border-top:1px solid var(--line)}
+.step{padding:32px 28px 8px 0;border-right:1px solid var(--line);padding-left:28px}
+.step:first-child{padding-left:0}.step:last-child{border-right:0}
+.step-n{font-variation-settings:"wdth" 125;font-weight:900;font-size:64px;line-height:1;color:transparent;-webkit-text-stroke:1.5px var(--orange);margin-bottom:22px}
+.step h3{font-size:21px;font-weight:700;margin-bottom:8px;line-height:1.25}
+.step p{color:var(--mute);font-size:16px}
+.perks{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:64px}
+.perk{display:flex;gap:16px;align-items:flex-start;padding:22px;border-radius:var(--r-md);background:rgba(255,255,255,.03);border:1px solid var(--line)}
+.perk svg{width:28px;height:28px;flex:none;color:var(--gold)}
+.perk b{display:block;font-size:17px}
+.perk span{color:var(--mute);font-size:15px}
+
+/* Horários */
+.hours-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(32px,6vw,90px);align-items:start}
+.now-card{background:var(--purple);border-radius:var(--r-lg);padding:clamp(28px,4vw,44px);position:relative;overflow:hidden}
+.now-card::before{content:"";position:absolute;right:-90px;bottom:-90px;width:260px;height:260px;border-radius:50%;border:26px solid var(--orange);border-left-color:var(--gold);border-bottom-color:transparent;opacity:.9}
+.now-card .big{font-variation-settings:"wdth" 125;font-weight:900;font-size:clamp(40px,5vw,60px);line-height:.95;text-transform:uppercase;margin:16px 0 10px;position:relative}
+.now-card p{position:relative;color:#D8D3EC;max-width:30ch}
+.week{list-style:none;border-top:1px solid var(--line)}
+.week li{display:grid;grid-template-columns:1fr auto;gap:16px;align-items:center;padding:18px 4px;border-bottom:1px solid var(--line);font-size:18px}
+.week li .t{font-variant-numeric:tabular-nums;font-weight:600}
+.week li.closed .t{color:var(--mute);font-weight:400}
+.week li.today{background:linear-gradient(90deg,rgba(255,90,0,.14),transparent);padding-left:16px;border-left:3px solid var(--orange)}
+.week li.today .d::after{content:"hoje";margin-left:10px;font-size:12px;font-weight:700;color:var(--black);background:var(--orange);padding:2px 8px;border-radius:999px;vertical-align:2px}
+.note{margin-top:20px;font-size:15px;color:var(--mute)}
+
+/* Unidades */
+.units-top{display:flex;flex-wrap:wrap;gap:16px;align-items:center;margin-bottom:28px}
+.geo-msg{font-size:15px;color:var(--mute);min-height:1.6em}
+.geo-msg.ok{color:#8FF0B4}.geo-msg.err{color:#FFB38A}
+.units{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.unit{position:relative;border-radius:var(--r-lg);overflow:hidden;background:var(--coal-2);border:1px solid var(--line);display:flex;flex-direction:column;transition:border-color .3s,box-shadow .3s}
+.unit.nearest{border-color:var(--orange);box-shadow:0 0 0 1px var(--orange),0 30px 60px -30px rgba(255,90,0,.55)}
+.unit .ph{border-radius:0;aspect-ratio:16/9}
+.unit-badge{position:absolute;top:16px;left:16px;z-index:2;background:var(--orange);color:var(--black);font-weight:700;font-size:13px;padding:6px 12px;border-radius:999px;display:none}
+.unit.nearest .unit-badge{display:inline-block}
+.unit-body{padding:28px;display:flex;flex-direction:column;gap:14px;flex:1}
+.unit h3{font-variation-settings:"wdth" 125;font-weight:900;font-size:30px;text-transform:uppercase;line-height:1}
+.unit address{font-style:normal;color:#D6D8DD}
+.unit .dist{font-weight:700;color:var(--orange)}
+.unit-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:auto;padding-top:8px}
+.unit-actions .btn{padding:12px 18px;font-size:15px}
+
+/* Planos */
+.plans-sec{background:radial-gradient(1200px 600px at 80% -10%,rgba(41,32,71,.9),transparent 60%),var(--black)}
+.plan-ctrl{display:flex;flex-wrap:wrap;gap:12px 20px;align-items:center;margin-bottom:36px}
+.seg{display:inline-flex;padding:5px;border-radius:14px;background:var(--coal-2);border:1px solid var(--line)}
+.seg button{padding:10px 18px;border-radius:10px;font-size:15px;font-weight:600;color:#C9CBD1;transition:background .25s,color .25s}
+.seg button[aria-pressed="true"]{background:var(--white);color:var(--black)}
+.plans{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;align-items:stretch}
+.plan{position:relative;border-radius:var(--r-lg);padding:30px 26px;background:var(--coal-2);border:1px solid var(--line);display:flex;flex-direction:column}
+.plan.featured{background:var(--orange);color:var(--black);border-color:var(--orange);transform:translateY(-14px)}
+.plan .tag{position:absolute;top:-13px;left:26px;background:var(--gold);color:var(--black);font-size:13px;font-weight:800;padding:5px 12px;border-radius:999px}
+.plan h3{font-variation-settings:"wdth" 125;font-weight:900;text-transform:uppercase;font-size:26px;line-height:1}
+.plan .desc{font-size:15px;margin-top:8px;color:var(--mute);min-height:3.2em}
+.plan.featured .desc{color:rgba(11,13,16,.75)}
+.price{margin:24px 0 4px;display:flex;align-items:flex-start;gap:4px;font-variant-numeric:tabular-nums}
+.price .cur{font-size:18px;font-weight:700;margin-top:8px}
+.price .val{font-variation-settings:"wdth" 125;font-weight:900;font-size:58px;line-height:1;letter-spacing:-.02em}
+.price .per{align-self:flex-end;margin-bottom:8px;font-size:15px;font-weight:600}
+.total{font-size:14px;color:var(--mute);min-height:1.5em}
+.plan.featured .total{color:rgba(11,13,16,.75)}
+.benefits{list-style:none;margin:24px 0 28px;display:grid;gap:12px;font-size:15.5px;line-height:1.4}
+.benefits li{display:flex;gap:10px;align-items:flex-start}
+.benefits li svg{width:18px;height:18px;flex:none;margin-top:1px;color:var(--orange)}
+.plan.featured .benefits li svg{color:var(--black)}
+.benefits li.plus{font-weight:700}
+.plan .btn{margin-top:auto;justify-content:center;width:100%;white-space:nowrap;padding:14px 12px;font-size:15px}
+.plan:not(.featured) .btn{background:transparent;border:1.5px solid rgba(255,255,255,.4);color:#fff}
+.plan:not(.featured) .btn:hover{background:var(--white);color:var(--black);border-color:var(--white)}
+.plan.featured .btn{background:var(--black);color:var(--white)}
+.plan.featured .btn:hover{background:#000;box-shadow:0 10px 30px -10px rgba(0,0,0,.6)}
+
+.compare{margin-top:56px;border:1px solid var(--line);border-radius:var(--r-md);overflow:hidden}
+.compare summary{list-style:none;cursor:pointer;padding:20px 24px;font-weight:700;display:flex;justify-content:space-between;align-items:center}
+.compare summary::-webkit-details-marker{display:none}
+.compare summary::after{content:"+";font-size:26px;font-weight:400;transition:transform .3s}
+.compare[open] summary::after{transform:rotate(45deg)}
+.table-wrap{overflow-x:auto;border-top:1px solid var(--line)}
+table{width:100%;border-collapse:collapse;min-width:680px;font-size:15px}
+th,td{padding:14px 18px;text-align:center;border-bottom:1px solid var(--line)}
+th:first-child,td:first-child{text-align:left}
+thead th{font-variation-settings:"wdth" 115;font-weight:800;background:var(--coal-2)}
+thead th.hl{color:var(--orange)}
+td .y{color:var(--orange);font-weight:900}
+td .n{color:#555A63}
+.plan-note{margin-top:18px;font-size:14px;color:var(--mute)}
+
+/* FAQ */
+.faq-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(32px,6vw,90px)}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;padding:22px 40px 22px 0;font-size:19px;font-weight:600;position:relative}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"";position:absolute;right:6px;top:50%;width:12px;height:12px;border-right:2px solid var(--orange);border-bottom:2px solid var(--orange);transform:translateY(-70%) rotate(45deg);transition:transform .3s}
+.faq details[open] summary::after{transform:translateY(-30%) rotate(-135deg)}
+.faq details p{padding:0 0 22px;color:#C9CBD1;max-width:62ch}
+
+/* CTA final + footer */
+.cta{padding:clamp(80px,10vw,130px) 0;text-align:left;background:var(--orange);color:var(--black);overflow:hidden;position:relative}
+.cta .display{font-size:clamp(48px,9vw,132px)}
+.cta p{font-size:19px;margin:20px 0 32px;max-width:44ch;font-weight:500}
+.cta .btn{background:var(--black);color:var(--white)}
+.cta .btn:hover{background:#000;transform:translateY(-2px)}
+.cta-ring{position:absolute;right:-120px;top:50%;translate:0 -50%;width:520px;opacity:.18;color:var(--black)}
+footer{padding:56px 0 40px;border-top:1px solid var(--line);font-size:15px;color:var(--mute)}
+.foot{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:32px}
+.foot h4{color:var(--white);font-size:15px;margin-bottom:12px}
+.foot ul{list-style:none;display:grid;gap:8px}
+.foot a{text-decoration:none}.foot a:hover{color:var(--white)}
+.copy{margin-top:48px;padding-top:24px;border-top:1px solid var(--line);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:13px}
+
+.wa-float{position:fixed;right:18px;bottom:18px;z-index:40;width:58px;height:58px;border-radius:50%;background:#25D366;display:grid;place-items:center;box-shadow:0 12px 30px -8px rgba(0,0,0,.6);transition:transform .2s}
+.wa-float:hover{transform:scale(1.07)}
+.wa-float svg{width:30px;height:30px;color:#fff}
+
+/* Reveal (único momento orquestrado fora do hero: planos) */
+.plans .plan{opacity:0;translate:0 30px;transition:opacity .7s var(--ease),translate .7s var(--ease)}
+.plans.in .plan{opacity:1;translate:0 0}
+.plans.in .plan:nth-child(2){transition-delay:.08s}.plans.in .plan:nth-child(3){transition-delay:.16s}.plans.in .plan:nth-child(4){transition-delay:.24s}
+
+/* Responsive */
+@media (max-width:1080px){
+  .plans{grid-template-columns:1fr 1fr}
+  .plan.featured{transform:none}
+  .steps{grid-template-columns:1fr 1fr}
+  .step:nth-child(2){border-right:0}
+  .step:nth-child(3){padding-left:0}
+  .step:nth-child(n+3){border-top:1px solid var(--line)}
+  .perks{grid-template-columns:1fr 1fr}
+}
+@media (max-width:860px){
+  .nav{position:fixed;inset:72px 0 auto;flex-direction:column;align-items:stretch;gap:0;background:rgba(11,13,16,.97);padding:8px var(--gut) 24px;border-bottom:1px solid var(--line);transform:translateY(-8px);opacity:0;pointer-events:none;transition:.25s}
+  .menu-open .nav{transform:none;opacity:1;pointer-events:auto}
+  .nav a{padding:14px 0;border-bottom:1px solid var(--line);font-size:17px}
+  .nav .btn{margin-top:16px;justify-content:center;padding:14px}
+  .menu-btn{display:inline-flex}
+  .menu-open .header{background:rgba(11,13,16,.97)}
+  .sec-head,.hours-grid,.faq-grid{grid-template-columns:1fr}
+  .units{grid-template-columns:1fr}
+  .gallery{grid-template-columns:1fr 1fr;grid-auto-rows:180px}
+  .g1{grid-column:span 2;grid-row:span 2}.g2,.g3,.g4,.g5,.g6{grid-column:span 1}
+  .g6{grid-column:span 2}
+  .foot{grid-template-columns:1fr 1fr}
+  .ring{right:-40vw;top:34%;width:130vw;opacity:.55}
+}
+@media (max-width:560px){
+  body{font-size:16px}
+  .plans{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr}
+  .step,.step:first-child,.step:nth-child(3){padding:26px 0 10px;border-right:0;border-top:1px solid var(--line)}
+  .steps{border-top:0}
+  .perks{grid-template-columns:1fr}
+  .hero-facts{gap:22px}
+  .hero-actions{flex-direction:column}
+  .hero-actions .btn{justify-content:center}
+  .hero h1{font-size:15vw}
+  .foot{grid-template-columns:1fr}
+  .week li{font-size:16px}
+  .seg button{padding:9px 13px;font-size:14px}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+  .plans .plan{opacity:1;translate:none}
+}
+</style>
+</head>
+<body>
+
+<!-- Símbolo F5 (versão provisória — substitua pelo arquivo original do logotipo) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="f5-logo" viewBox="0 0 100 100">
+      <circle cx="50" cy="50" r="48" fill="#0B0D10"/>
+      <circle cx="50" cy="50" r="44" fill="none" stroke="#FF5A00" stroke-width="3"/>
+      <circle cx="50" cy="50" r="38" fill="#292047"/>
+      <path d="M26 44 A26 26 0 0 1 70 30" fill="none" stroke="#FFB900" stroke-width="4" stroke-linecap="round"/>
+      <path d="M66 24 L73 31 L64 34 Z" fill="#FFB900"/>
+      <path d="M74 56 A26 26 0 0 1 30 70" fill="none" stroke="#FF5A00" stroke-width="4" stroke-linecap="round"/>
+      <path d="M34 76 L27 69 L36 66 Z" fill="#FF5A00"/>
+      <text x="50" y="61" text-anchor="middle" font-family="Archivo,Arial,sans-serif" font-weight="900" font-size="32" font-style="italic" fill="#fff">f5</text>
+    </symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+    <symbol id="i-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1 2.7c.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3z"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+    <symbol id="i-locate" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="7"/><circle cx="12" cy="12" r="2.5" fill="currentColor"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></g></symbol>
+  </defs>
+</svg>
+
+<header class="header" id="top">
+  <div class="wrap">
+    <a href="#top" class="brand" aria-label="F5 Fitness, voltar ao início">
+      <svg aria-hidden="true"><use href="#f5-logo"/></svg>
+      <span>F5 Fitness</span>
+    </a>
+    <nav class="nav" id="nav" aria-label="Principal">
+      <a href="#estrutura">Estrutura</a>
+      <a href="#atendimento">Como funciona</a>
+      <a href="#horarios">Horários</a>
+      <a href="#unidades">Unidades</a>
+      <a href="#planos" class="btn btn-primary">Ver planos</a>
+    </nav>
+    <button class="menu-btn" id="menuBtn" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav"><span></span></button>
+  </div>
+</header>
+
+<main>
+<!-- HERO -->
+<section class="hero" aria-labelledby="hero-title">
+  <div class="hero-bg" style="background-image:url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=2000&q=75')"></div>
+  <div class="ring" aria-hidden="true">
+    <svg viewBox="0 0 400 400" id="ringSvg">
+      <path d="M70 160 A135 135 0 0 1 300 95" fill="none" stroke="#FFB900" stroke-width="14" stroke-linecap="round"/>
+      <path d="M288 66 L326 104 L278 118 Z" fill="#FFB900"/>
+      <path d="M330 240 A135 135 0 0 1 100 305" fill="none" stroke="#FF5A00" stroke-width="14" stroke-linecap="round"/>
+      <path d="M112 334 L74 296 L122 282 Z" fill="#FF5A00"/>
+      <circle cx="200" cy="200" r="178" fill="none" stroke="rgba(255,255,255,.08)" stroke-width="1.5"/>
+    </svg>
+  </div>
+  <div class="wrap hero-grid">
+    <h1 class="display" id="hero-title">
+      <span class="line"><span>Dê um F5</span></span>
+      <span class="line"><span>na sua</span></span>
+      <span class="line"><span>rotina.</span></span>
+    </h1>
+    <div class="hero-foot">
+      <div>
+        <p class="lead">Musculação, cardio e acompanhamento de perto em duas unidades em Campo Formoso. Escolha seu plano e comece a treinar ainda esta semana.</p>
+        <div class="hero-actions">
+          <a href="#planos" class="btn btn-primary">Ver planos</a>
+          <a href="#unidades" class="btn btn-ghost" data-locate><svg aria-hidden="true"><use href="#i-locate"/></svg>Ache a unidade mais próxima</a>
+        </div>
+      </div>
+      <div style="display:grid;gap:22px;justify-items:start">
+        <span class="status-pill" id="heroStatus"><span class="dot"></span><span>Verificando horário…</span></span>
+        <div class="hero-facts">
+          <div><b>2</b><span>unidades</span></div>
+          <div><b>7</b><span>dias por semana</span></div>
+          <div><b>5h</b><span>abrimos cedo</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ESTRUTURA -->
+<section class="sec" id="estrutura" aria-labelledby="estrutura-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 class="h2" id="estrutura-title">Estrutura para treinar sem fila</h2>
+      <p class="lead">Equipamentos de musculação para todos os grupos musculares, área de cardio separada e espaço livre para funcional e alongamento.</p>
+    </div>
+    <div class="gallery">
+      <figure class="ph g1"><img loading="lazy" src="https://images.unsplash.com/photo-1540497077202-7c8a3999166f?auto=format&fit=crop&w=1400&q=70" alt="Salão de musculação com máquinas e pesos"><figcaption>Salão de musculação<small>Máquinas e pesos livres</small></figcaption></figure>
+      <figure class="ph g2"><img loading="lazy" src="https://images.unsplash.com/photo-1576678927484-cc907957088c?auto=format&fit=crop&w=900&q=70" alt="Esteiras na área de cardio"><figcaption>Área de cardio<small>Esteiras, bikes e elíptico</small></figcaption></figure>
+      <figure class="ph g3"><img loading="lazy" src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?auto=format&fit=crop&w=900&q=70" alt="Halteres organizados em suporte"><figcaption>Pesos livres<small>Halteres de 1 a 40 kg</small></figcaption></figure>
+      <figure class="ph g4"><img loading="lazy" src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=900&q=70" alt="Aluno treinando com barra"><figcaption>Treino livre<small>Racks e bancos</small></figcaption></figure>
+      <figure class="ph g5"><img loading="lazy" src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=900&q=70" alt="Instrutor orientando aluna"><figcaption>Equipe no salão<small>Instrutores em todos os turnos</small></figcaption></figure>
+      <figure class="ph g6"><img loading="lazy" src="https://images.unsplash.com/photo-1599058917212-d750089bc07e?auto=format&fit=crop&w=900&q=70" alt="Espaço livre para treino funcional"><figcaption>Funcional<small>Espaço livre e acessórios</small></figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ATENDIMENTO -->
+<section class="sec serve" id="atendimento" aria-labelledby="atend-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 class="h2" id="atend-title">Do primeiro contato ao primeiro treino</h2>
+      <p class="lead">Você não chega sozinho. Nossa equipe acompanha cada etapa até o treino virar rotina.</p>
+    </div>
+    <ol class="steps" role="list">
+      <li class="step"><div class="step-n" aria-hidden="true">1</div><h3>Escolha o plano</h3><p>Compare os planos aqui no site e fale com a gente pelo WhatsApp para fechar.</p></li>
+      <li class="step"><div class="step-n" aria-hidden="true">2</div><h3>Faça a matrícula</h3><p>Leve um documento com foto na unidade escolhida. Leva poucos minutos.</p></li>
+      <li class="step"><div class="step-n" aria-hidden="true">3</div><h3>Avaliação física</h3><p>Medimos seu ponto de partida e entendemos seu objetivo: emagrecer, ganhar massa ou condicionamento.</p></li>
+      <li class="step"><div class="step-n" aria-hidden="true">4</div><h3>Treino montado para você</h3><p>Você recebe sua ficha e um instrutor acompanha as primeiras execuções.</p></li>
+    </ol>
+    <div class="perks">
+      <div class="perk"><svg aria-hidden="true" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M8 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM2 21v-1a6 6 0 0 1 12 0v1M16 3.5a4 4 0 0 1 0 7.5M22 21v-1a6 6 0 0 0-4-5.6"/></svg><div><b>Instrutores em todos os turnos</b><span>Tire dúvidas e corrija a execução sempre que precisar.</span></div></div>
+      <div class="perk"><svg aria-hidden="true" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M4 4h16v16H4zM4 9h16M9 4v16"/></svg><div><b>Ficha atualizada</b><span>Seu treino é revisado conforme você evolui.</span></div></div>
+      <div class="perk"><svg aria-hidden="true" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 2l2.5 6.5L21 9l-5 4.5L17.5 21 12 17l-5.5 4L8 13.5 3 9l6.5-.5z"/></svg><div><b>Ambiente climatizado</b><span>Som ambiente, vestiários e bebedouro nas duas unidades.</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- HORÁRIOS -->
+<section class="sec" id="horarios" aria-labelledby="horarios-title">
+  <div class="wrap hours-grid">
+    <div>
+      <h2 class="h2" id="horarios-title" style="margin-bottom:28px">Horários</h2>
+      <div class="now-card" aria-live="polite">
+        <span class="status-pill" id="nowPill" style="background:rgba(11,13,16,.35)"><span class="dot"></span><span>Agora</span></span>
+        <p class="big" id="nowBig">—</p>
+        <p id="nowSub">Os mesmos horários valem para as duas unidades.</p>
+      </div>
+    </div>
+    <div>
+      <ul class="week" id="week"></ul>
+      <p class="note">Em feriados o horário pode mudar. Avisamos no Instagram e no WhatsApp com antecedência.</p>
+    </div>
+  </div>
+</section>
+
+<!-- UNIDADES -->
+<section class="sec serve" id="unidades" aria-labelledby="unid-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 class="h2" id="unid-title">Duas unidades em Campo Formoso</h2>
+      <p class="lead">Treine na unidade mais perto de casa ou do trabalho. Usamos sua localização só para calcular a distância, e ela não sai do seu aparelho.</p>
+    </div>
+    <div class="units-top">
+      <button class="btn btn-primary" id="locateBtn" data-locate><svg aria-hidden="true"><use href="#i-locate"/></svg>Ache a unidade mais próxima</button>
+      <p class="geo-msg" id="geoMsg" role="status" aria-live="polite"></p>
+    </div>
+    <div class="units" id="units"></div>
+  </div>
+</section>
+
+<!-- PLANOS -->
+<section class="sec plans-sec" id="planos" aria-labelledby="planos-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 class="h2" id="planos-title">Planos</h2>
+      <p class="lead">Quanto maior o plano, menor a mensalidade e mais benefícios. Escolha, toque no botão e finalize com a gente pelo WhatsApp.</p>
+    </div>
+    <div class="plan-ctrl">
+      <span class="muted" id="segLabel">Unidade</span>
+      <div class="seg" role="group" aria-labelledby="segLabel" id="unitSeg"></div>
+    </div>
+    <div class="plans" id="plans"></div>
+
+    <details class="compare">
+      <summary>Comparar todos os benefícios</summary>
+      <div class="table-wrap"><table id="compareTable"></table></div>
+    </details>
+    <p class="plan-note">Valores por mês. Pagamento e condições confirmados no atendimento pelo WhatsApp.</p>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="sec" aria-labelledby="faq-title">
+  <div class="wrap faq-grid">
+    <h2 class="h2" id="faq-title">Dúvidas comuns</h2>
+    <div class="faq">
+      <details><summary>Nunca treinei. Posso começar mesmo assim?</summary><p>Pode. A avaliação física e o acompanhamento nas primeiras semanas existem justamente para isso. O treino começa no seu ritmo.</p></details>
+      <details><summary>Preciso levar algo para a matrícula?</summary><p>Um documento com foto. Para menores de 18 anos, é preciso ir com o responsável.</p></details>
+      <details><summary>Posso treinar nas duas unidades?</summary><p>Nos planos Semestral e Anual, sim. Nos planos Mensal e Trimestral você treina na unidade escolhida na matrícula.</p></details>
+      <details><summary>Como faço para trancar o plano?</summary><p>O plano Anual permite congelar por até 30 dias. Peça pelo WhatsApp ou na recepção.</p></details>
+      <details><summary>Quais formas de pagamento vocês aceitam?</summary><p>Pix, cartão de débito e crédito. Os detalhes de cada plano são passados no atendimento.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="cta" aria-labelledby="cta-title">
+  <svg class="cta-ring" viewBox="0 0 400 400" aria-hidden="true"><path d="M70 160 A135 135 0 0 1 300 95" fill="none" stroke="currentColor" stroke-width="22" stroke-linecap="round"/><path d="M288 66 L326 104 L278 118 Z" fill="currentColor"/><path d="M330 240 A135 135 0 0 1 100 305" fill="none" stroke="currentColor" stroke-width="22" stroke-linecap="round"/><path d="M112 334 L74 296 L122 282 Z" fill="currentColor"/></svg>
+  <div class="wrap">
+    <h2 class="display" id="cta-title">Seu próximo<br>treino começa<br>aqui.</h2>
+    <p>Mande uma mensagem e tire suas dúvidas com a nossa equipe agora.</p>
+    <a class="btn" id="ctaWa" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg>Falar no WhatsApp</a>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <a href="#top" class="brand" style="color:#fff;margin-bottom:14px"><svg aria-hidden="true"><use href="#f5-logo"/></svg><span>F5 Fitness</span></a>
+        <p>Academia em Campo Formoso, Bahia.</p>
+      </div>
+      <div><h4>Navegue</h4><ul><li><a href="#estrutura">Estrutura</a></li><li><a href="#horarios">Horários</a></li><li><a href="#planos">Planos</a></li></ul></div>
+      <div><h4>Unidades</h4><ul id="footUnits"></ul></div>
+      <div><h4>Contato</h4><ul><li><a id="footWa" target="_blank" rel="noopener">WhatsApp</a></li><li><a href="https://www.instagram.com/f5fitness__/" target="_blank" rel="noopener">Instagram @f5fitness__</a></li></ul></div>
+    </div>
+    <div class="copy"><span>© <span id="yr"></span> F5 Fitness. Todos os direitos reservados.</span><a href="#top">Voltar ao topo</a></div>
+  </div>
+</footer>
+
+<a class="wa-float" id="waFloat" target="_blank" rel="noopener" aria-label="Falar com a F5 Fitness no WhatsApp"><svg aria-hidden="true"><use href="#i-wa"/></svg></a>
+
+<script>
+/* =========================================================
+   CONFIGURAÇÃO — edite aqui os dados da academia
+   ========================================================= */
+const CONFIG = {
+  whatsapp: "5574991608952",
+
+  // Horários (0 = domingo ... 6 = sábado). null = fechado.
+  horarios: {
+    1: ["05:00","22:00"], 2: ["05:00","22:00"], 3: ["05:00","22:00"],
+    4: ["05:00","22:00"], 5: ["05:00","22:00"],
+    6: ["07:00","13:00"], 0: ["08:00","12:00"]
+  },
+
+  // Unidades: troque endereço, coordenadas (Google Maps > clique direito > copiar lat,lng) e foto
+  unidades: [
+    { id:"centro", nome:"Unidade Centro", endereco:"Rua (endereço), nº — Centro, Campo Formoso-BA",
+      lat:-10.5072, lng:-40.3206,
+      foto:"https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&w=1200&q=70" },
+    { id:"unidade2", nome:"Unidade 2", endereco:"Rua (endereço), nº — Bairro, Campo Formoso-BA",
+      lat:-10.4985, lng:-40.3290,
+      foto:"https://images.unsplash.com/photo-1593079831268-3381b0db4a77?auto=format&fit=crop&w=1200&q=70" }
+  ],
+
+  // Planos: preço é por mês. "meses" calcula o total.
+  planos: [
+    { id:"mensal", nome:"Mensal", desc:"Para começar sem compromisso longo.", preco:99.90, meses:1,
+      beneficios:["Musculação e cardio","Avaliação física inicial","Ficha de treino personalizada","Acesso à unidade escolhida"] },
+    { id:"trimestral", nome:"Trimestral", desc:"Três meses para criar o hábito.", preco:89.90, meses:3,
+      beneficios:["Tudo do Mensal","Sem taxa de matrícula","Ficha revisada todo mês"] },
+    { id:"semestral", nome:"Semestral", desc:"O equilíbrio entre preço e resultado.", preco:79.90, meses:6, destaque:"Mais escolhido",
+      beneficios:["Tudo do Trimestral","Acesso às 2 unidades","Reavaliação física a cada 3 meses","Aula de funcional inclusa"] },
+    { id:"anual", nome:"Anual", desc:"Menor mensalidade e todos os benefícios.", preco:69.90, meses:12,
+      beneficios:["Tudo do Semestral","Congelamento de até 30 dias","1 convidado por mês","Camiseta oficial F5"] }
+  ],
+
+  // Tabela comparativa: [benefício, mensal, trimestral, semestral, anual]
+  comparativo: [
+    ["Musculação e cardio",1,1,1,1],
+    ["Avaliação física inicial",1,1,1,1],
+    ["Ficha de treino personalizada",1,1,1,1],
+    ["Sem taxa de matrícula",0,1,1,1],
+    ["Ficha revisada todo mês",0,1,1,1],
+    ["Acesso às 2 unidades",0,0,1,1],
+    ["Reavaliação física trimestral",0,0,1,1],
+    ["Aula de funcional",0,0,1,1],
+    ["Congelamento de até 30 dias",0,0,0,1],
+    ["1 convidado por mês",0,0,0,1],
+    ["Camiseta oficial F5",0,0,0,1]
+  ]
+};
+
+/* ========================================================= */
+const $ = s => document.querySelector(s);
+const brl = v => v.toLocaleString("pt-BR",{minimumFractionDigits:2,maximumFractionDigits:2});
+const waLink = msg => `https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(msg)}`;
+const DIAS = ["Domingo","Segunda","Terça","Quarta","Quinta","Sexta","Sábado"];
+let unidadeAtual = CONFIG.unidades[0].id;
+
+// Contatos gerais
+const geral = waLink("Olá, F5 Fitness! Vim pelo site e queria tirar uma dúvida.");
+["#ctaWa","#footWa","#waFloat"].forEach(s => $(s).href = geral);
+$("#yr").textContent = new Date().getFullYear();
+
+// Header + menu
+const header = $(".header");
+const onScroll = () => header.classList.toggle("scrolled", scrollY > 40);
+addEventListener("scroll", onScroll, {passive:true}); onScroll();
+$("#menuBtn").addEventListener("click", () => {
+  const open = document.body.classList.toggle("menu-open");
+  $("#menuBtn").setAttribute("aria-expanded", open);
+  $("#menuBtn").setAttribute("aria-label", open ? "Fechar menu" : "Abrir menu");
+});
+document.querySelectorAll(".nav a").forEach(a => a.addEventListener("click", () => {
+  document.body.classList.remove("menu-open"); $("#menuBtn").setAttribute("aria-expanded", false);
+}));
+
+// Anel do hero gira com a rolagem (o "F5" da página)
+const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+const ring = $("#ringSvg");
+if (!reduce) {
+  let t = 0, raf;
+  const spin = () => { t += .04; ring.style.transform = `rotate(${t + scrollY * .12}deg)`; raf = requestAnimationFrame(spin); };
+  spin();
+}
+
+// Horários
+const toMin = h => { const [a,b] = h.split(":").map(Number); return a*60+b; };
+const fmt = h => h.replace(":00","h").replace(/^0/,"").replace(/:(\d\d)/,"h$1");
+function statusAgora() {
+  const d = new Date(), dia = d.getDay(), m = d.getHours()*60 + d.getMinutes();
+  const h = CONFIG.horarios[dia];
+  if (h && m >= toMin(h[0]) && m < toMin(h[1])) return {aberto:true, txt:`Aberto agora`, big:`Aberto até ${fmt(h[1])}`};
+  // próxima abertura
+  for (let i = 0; i < 8; i++) {
+    const di = (dia + i) % 7, hh = CONFIG.horarios[di];
+    if (!hh) continue;
+    if (i === 0 && m < toMin(hh[0])) return {aberto:false, txt:"Fechado agora", big:`Abre hoje às ${fmt(hh[0])}`};
+    if (i > 0) return {aberto:false, txt:"Fechado agora", big:`Abre ${i===1?"amanhã":DIAS[di].toLowerCase()} às ${fmt(hh[0])}`};
+  }
+  return {aberto:false, txt:"Fechado", big:"Consulte"};
+}
+function renderHorarios() {
+  const s = statusAgora(), hoje = new Date().getDay();
+  [$("#heroStatus"), $("#nowPill")].forEach(p => {
+    p.querySelector(".dot").classList.toggle("on", s.aberto);
+    p.lastElementChild.textContent = p.id === "heroStatus" ? `${s.txt} · ${s.big.replace("Aberto até","até")}` : s.txt;
+  });
+  if (!s.aberto) $("#heroStatus").lastElementChild.textContent = s.big;
+  $("#nowBig").textContent = s.big;
+  const ordem = [1,2,3,4,5,6,0];
+  $("#week").innerHTML = ordem.map(i => {
+    const h = CONFIG.horarios[i];
+    return `<li class="${h?"":"closed"} ${i===hoje?"today":""}"><span class="d">${DIAS[i]}</span><span class="t">${h ? `${fmt(h[0])} às ${fmt(h[1])}` : "Fechado"}</span></li>`;
+  }).join("");
+}
+renderHorarios(); setInterval(renderHorarios, 60000);
+
+// Unidades
+const mapsLink = u => `https://www.google.com/maps/search/?api=1&query=${u.lat},${u.lng}`;
+const rotaLink = u => `https://www.google.com/maps/dir/?api=1&destination=${u.lat},${u.lng}`;
+$("#units").innerHTML = CONFIG.unidades.map(u => `
+  <article class="unit" id="u-${u.id}">
+    <span class="unit-badge">Mais perto de você</span>
+    <figure class="ph"><img loading="lazy" src="${u.foto}" alt="Fachada da ${u.nome}"></figure>
+    <div class="unit-body">
+      <h3>${u.nome}</h3>
+      <address>${u.endereco}</address>
+      <span class="dist" hidden></span>
+      <div class="unit-actions">
+        <a class="btn btn-primary" href="${rotaLink(u)}" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-pin"/></svg>Como chegar</a>
+        <a class="btn btn-ghost" href="#planos" data-pick="${u.id}">Ver planos desta unidade</a>
+      </div>
+    </div>
+  </article>`).join("");
+$("#footUnits").innerHTML = CONFIG.unidades.map(u => `<li><a href="${mapsLink(u)}" target="_blank" rel="noopener">${u.nome}</a></li>`).join("");
+document.querySelectorAll("[data-pick]").forEach(a => a.addEventListener("click", () => setUnidade(a.dataset.pick)));
+
+function dist(a, b, c, d) {
+  const R = 6371, r = x => x*Math.PI/180;
+  const dLat = r(c-a), dLng = r(d-b);
+  const h = Math.sin(dLat/2)**2 + Math.cos(r(a))*Math.cos(r(c))*Math.sin(dLng/2)**2;
+  return 2*R*Math.asin(Math.sqrt(h));
+}
+const msg = (t, cls="") => { const m = $("#geoMsg"); m.textContent = t; m.className = "geo-msg " + cls; };
+function localizar() {
+  if (!("geolocation" in navigator)) return msg("Seu navegador não permite localização. Escolha a unidade pelo endereço abaixo.","err");
+  msg("Buscando sua localização…");
+  navigator.geolocation.getCurrentPosition(pos => {
+    const {latitude:la, longitude:lo} = pos.coords;
+    const lista = CONFIG.unidades.map(u => ({u, km: dist(la, lo, u.lat, u.lng)})).sort((a,b) => a.km - b.km);
+    document.querySelectorAll(".unit").forEach(el => el.classList.remove("nearest"));
+    lista.forEach(({u, km}) => {
+      const el = $(`#u-${u.id} .dist`);
+      el.hidden = false; el.textContent = km < 1 ? `${Math.round(km*1000)} m de você` : `${km.toFixed(1).replace(".",",")} km de você`;
+    });
+    const perto = lista[0];
+    $(`#u-${perto.u.id}`).classList.add("nearest");
+    setUnidade(perto.u.id);
+    msg(`A ${perto.u.nome} é a mais próxima de você.`, "ok");
+  }, err => {
+    msg(err.code === 1 ? "Você não liberou a localização. Permita o acesso no navegador ou escolha a unidade pelo endereço abaixo." : "Não conseguimos sua localização agora. Tente de novo ou escolha a unidade pelo endereço abaixo.", "err");
+  }, {enableHighAccuracy:true, timeout:10000, maximumAge:60000});
+}
+document.querySelectorAll("[data-locate]").forEach(b => b.addEventListener("click", e => {
+  if (b.tagName === "A") { e.preventDefault(); $("#unidades").scrollIntoView({behavior: reduce ? "auto" : "smooth"}); }
+  localizar();
+}));
+
+// Planos
+const check = `<svg aria-hidden="true"><use href="#i-check"/></svg>`;
+function renderPlanos() {
+  const un = CONFIG.unidades.find(u => u.id === unidadeAtual);
+  $("#unitSeg").innerHTML = CONFIG.unidades.map(u => `<button type="button" aria-pressed="${u.id===unidadeAtual}" data-u="${u.id}">${u.nome}</button>`).join("");
+  $("#unitSeg").querySelectorAll("button").forEach(b => b.addEventListener("click", () => setUnidade(b.dataset.u)));
+  $("#plans").innerHTML = CONFIG.planos.map(p => {
+    const [int, dec] = brl(p.preco).split(",");
+    const total = p.meses > 1 ? `Total de R$ ${brl(p.preco*p.meses)} em ${p.meses} meses` : "Renovação mês a mês";
+    const texto = `Olá, F5 Fitness! Quero assinar o plano ${p.nome} (R$ ${brl(p.preco)}/mês) na ${un.nome}. Pode me passar os próximos passos?`;
+    return `<article class="plan ${p.destaque?"featured":""}">
+      ${p.destaque?`<span class="tag">${p.destaque}</span>`:""}
+      <h3>${p.nome}</h3>
+      <p class="desc">${p.desc}</p>
+      <div class="price" aria-label="R$ ${brl(p.preco)} por mês"><span class="cur">R$</span><span class="val">${int}</span><span class="cur">,${dec}</span><span class="per">/mês</span></div>
+      <p class="total">${total}</p>
+      <ul class="benefits">${p.beneficios.map(b => `<li class="${b.startsWith("Tudo do")?"plus":""}">${check}${b}</li>`).join("")}</ul>
+      <a class="btn" href="${waLink(texto)}" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg>Assinar ${p.nome}</a>
+    </article>`;
+  }).join("");
+  if (plansSeen) $("#plans").classList.add("in");
+}
+function setUnidade(id) { unidadeAtual = id; renderPlanos(); }
+
+$("#compareTable").innerHTML = `<thead><tr><th scope="col">Benefício</th>${CONFIG.planos.map(p => `<th scope="col" class="${p.destaque?"hl":""}">${p.nome}</th>`).join("")}</tr></thead>
+<tbody>${CONFIG.comparativo.map(r => `<tr><th scope="row" style="font-weight:500">${r[0]}</th>${r.slice(1).map(v => `<td>${v ? '<span class="y" aria-label="Incluso">✓</span>' : '<span class="n" aria-label="Não incluso">—</span>'}</td>`).join("")}</tr>`).join("")}</tbody>`;
+
+let plansSeen = false;
+document.addEventListener('error', e => { if (e.target.tagName === 'IMG') e.target.style.visibility = 'hidden'; }, true);
+renderPlanos();
+if ("IntersectionObserver" in window && !reduce) {
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { plansSeen = true; $("#plans").classList.add("in"); io.disconnect(); } }), {threshold:.15});
+  io.observe($("#plans"));
+} else { plansSeen = true; $("#plans").classList.add("in"); }
+</script>
+</body>
+</html>

@@ -497,6 +497,20 @@ button:focus-visible {
     color: #fff;
 }
 
+.card-projeto__capa--f5 {
+    background: radial-gradient(circle at 78% 28%, #3a2e63, transparent 55%), linear-gradient(135deg, #0b0d10 35%, #ff5a00);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-family: var(--font-primaria);
+    font-size: 1.3rem;
+    font-weight: 900;
+    font-style: italic;
+    text-transform: uppercase;
+    color: #fff;
+}
+
 .card-projeto__capa--barbearia {
     background: linear-gradient(135deg, #050505, #1a1a1a 65%, #3a3a38);
     display: flex;
