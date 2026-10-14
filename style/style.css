@@ -511,6 +511,19 @@ button:focus-visible {
     color: #fff;
 }
 
+.card-projeto__capa--cardoso {
+    background: linear-gradient(135deg, #0b0b0b 40%, #2a0a0a 70%, #8f1d1d);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #ececea;
+}
+
 .card-projeto__capa--barbearia {
     background: linear-gradient(135deg, #050505, #1a1a1a 65%, #3a3a38);
     display: flex;
