@@ -137,6 +137,23 @@ button:focus-visible {
     width: 100%;
 }
 
+.cabecalho__cta {
+    padding: 10px 20px;
+    border-radius: 100px;
+    background: var(--gradiente-marca);
+    color: #fff;
+    font-family: var(--font-secundaria);
+    font-size: .9rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.cabecalho__cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 24px rgba(168, 85, 247, .35);
+}
+
 /* ===== Apresentacao (hero) ===== */
 .apresentacao {
     padding: 6% 8% 4%;
@@ -209,6 +226,146 @@ button:focus-visible {
     border: 1px solid var(--cor-borda);
     background: var(--cor-primaria-alt);
     color: var(--cor-muted);
+}
+
+/* ===== Botões de chamada ===== */
+.apresentacao__ctas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+.botao {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 15px 26px;
+    border-radius: 14px;
+    font-family: var(--font-secundaria);
+    font-size: 1rem;
+    font-weight: 700;
+    text-decoration: none;
+    border: 1px solid transparent;
+    transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease, background .25s ease;
+}
+
+.botao svg {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+}
+
+.botao--principal {
+    background: var(--gradiente-marca);
+    color: #fff;
+    box-shadow: 0 10px 30px rgba(168, 85, 247, .3);
+}
+
+.botao--principal:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 36px rgba(168, 85, 247, .45);
+}
+
+.botao--secundario {
+    background: var(--cor-primaria-alt);
+    border-color: var(--cor-borda);
+    color: var(--cor-secundaria);
+}
+
+.botao--secundario:hover {
+    border-color: var(--cor-terciaria);
+    background: var(--cor-hover);
+    transform: translateY(-3px);
+}
+
+.selo-confianca {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--cor-muted);
+    font-size: .95rem;
+}
+
+.selo-confianca svg {
+    width: 22px;
+    height: 22px;
+    padding: 4px;
+    border-radius: 50%;
+    background: rgba(168, 85, 247, .18);
+    stroke: var(--cor-destaque);
+    flex-shrink: 0;
+}
+
+.selo-confianca strong {
+    color: var(--cor-secundaria);
+}
+
+/* ===== Botão flutuante do WhatsApp ===== */
+.whatsapp-flutuante {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    z-index: 20;
+    width: 60px;
+    height: 60px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: #25d366;
+    color: #fff;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .4), 0 0 0 0 rgba(37, 211, 102, .5);
+    animation: pulso-whatsapp 2.6s ease-out infinite;
+    transition: transform .25s ease;
+}
+
+.whatsapp-flutuante:hover {
+    transform: scale(1.08);
+}
+
+.whatsapp-flutuante svg {
+    width: 30px;
+    height: 30px;
+}
+
+@keyframes pulso-whatsapp {
+    0% { box-shadow: 0 10px 30px rgba(0, 0, 0, .4), 0 0 0 0 rgba(37, 211, 102, .5); }
+    70%, 100% { box-shadow: 0 10px 30px rgba(0, 0, 0, .4), 0 0 0 16px rgba(37, 211, 102, 0); }
+}
+
+body.modal-aberto .whatsapp-flutuante {
+    display: none;
+}
+
+/* ===== Chamada final ===== */
+.chamada-final {
+    margin-top: 56px;
+    padding: 48px 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    text-align: center;
+    border: 1px solid var(--cor-borda);
+    border-radius: 24px;
+    background:
+        radial-gradient(circle at 50% 0%, rgba(168, 85, 247, .25), transparent 60%),
+        var(--cor-primaria-alt);
+}
+
+.chamada-final__titulo {
+    font-family: var(--font-primaria);
+    font-size: 1.5rem;
+    font-weight: 400;
+    line-height: 1.4;
+}
+
+.chamada-final__texto {
+    max-width: 520px;
+    color: var(--cor-muted);
+    font-size: 1.05rem;
+    line-height: 1.7;
+    margin-bottom: 8px;
 }
 
 /* ===== Links / redes sociais ===== */
@@ -411,12 +568,20 @@ button:focus-visible {
 }
 
 .jornada__marca {
-    width: 10px;
-    height: 10px;
+    width: 30px;
+    height: 30px;
+    display: grid;
+    place-items: center;
     border-radius: 50%;
     background: var(--gradiente-marca);
     flex-shrink: 0;
     box-shadow: 0 0 12px rgba(168, 85, 247, .6);
+    font-size: .85rem;
+    font-weight: 800;
+}
+
+.jornada__item .jornada__marca {
+    color: #fff;
 }
 
 .jornada__item strong {
@@ -834,16 +999,6 @@ body.modal-aberto {
     margin-top: 10px;
 }
 
-.aviso-projetos {
-    margin-top: 40px;
-    padding: 20px 24px;
-    border: 1px dashed var(--cor-borda);
-    border-radius: 14px;
-    color: var(--cor-muted);
-    font-size: .95rem;
-    line-height: 1.6;
-}
-
 /* ===== Revelação ao rolar ===== */
 .reveal {
     opacity: 0;
@@ -930,6 +1085,37 @@ body.modal-aberto {
     .apresentacao__links__link {
         width: 100%;
         justify-content: center;
+    }
+
+    .cabecalho__cta {
+        display: none;
+    }
+
+    .cabecalho__menu {
+        gap: 32px;
+    }
+
+    .apresentacao__ctas .botao {
+        width: 100%;
+    }
+
+    .chamada-final {
+        padding: 36px 20px;
+    }
+
+    .chamada-final .botao {
+        width: 100%;
+    }
+
+    .chamada-final__titulo {
+        font-size: 1.2rem;
+    }
+
+    .whatsapp-flutuante {
+        right: 16px;
+        bottom: 16px;
+        width: 56px;
+        height: 56px;
     }
 
     .modal-projeto .card-projeto__capa {
