@@ -154,6 +154,38 @@ button:focus-visible {
     box-shadow: 0 10px 24px rgba(168, 85, 247, .35);
 }
 
+/* Seletor de idioma */
+.idioma {
+    display: flex;
+    padding: 3px;
+    gap: 2px;
+    border: 1px solid var(--cor-borda);
+    border-radius: 100px;
+    background: var(--cor-primaria-alt);
+}
+
+.idioma__opcao {
+    padding: 6px 12px;
+    border-radius: 100px;
+    font-family: var(--font-secundaria);
+    font-size: .8rem;
+    font-weight: 700;
+    letter-spacing: .5px;
+    color: var(--cor-muted);
+    text-decoration: none;
+    transition: color .2s ease, background .2s ease;
+}
+
+.idioma__opcao:hover {
+    color: var(--cor-secundaria);
+}
+
+.idioma__opcao--ativo {
+    background: var(--cor-hover);
+    color: var(--cor-secundaria);
+    box-shadow: inset 0 0 0 1px rgba(168, 85, 247, .45);
+}
+
 /* ===== Apresentacao (hero) ===== */
 .apresentacao {
     padding: 6% 8% 4%;
@@ -1263,6 +1295,16 @@ body.modal-aberto {
 
     .cabecalho__cta {
         display: none;
+    }
+
+    .idioma {
+        position: absolute;
+        top: 18px;
+        right: 16px;
+    }
+
+    .idioma__opcao {
+        padding: 5px 10px;
     }
 
     .servicos__grid,

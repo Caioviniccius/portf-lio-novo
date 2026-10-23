@@ -30,15 +30,21 @@ if (prefereMenosMovimento || !("IntersectionObserver" in window)) {
     elementosReveal.forEach((el) => observer.observe(el));
 }
 
+// Textos gerados pelo script, no idioma da página
+const emIngles = document.documentElement.lang.startsWith("en");
+const textos = emIngles
+    ? { verMais: "See more", fechar: "Close", detalhes: "Project details" }
+    : { verMais: "Ver mais", fechar: "Fechar", detalhes: "Detalhes do projeto" };
+
 // Cards de projeto compactos com "Ver mais" abrindo os detalhes em uma caixa maior
 const gradeProjetos = document.querySelector(".projetos__grid");
 
 if (gradeProjetos) {
     const modal = document.createElement("dialog");
     modal.className = "modal-projeto";
-    modal.setAttribute("aria-label", "Detalhes do projeto");
+    modal.setAttribute("aria-label", textos.detalhes);
     modal.innerHTML = `
-        <button class="modal-projeto__fechar" type="button" aria-label="Fechar">
+        <button class="modal-projeto__fechar" type="button" aria-label="${textos.fechar}">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M18 6L6 18" /><path d="M6 6l12 12" />
             </svg>
@@ -75,7 +81,7 @@ if (gradeProjetos) {
         const botao = document.createElement("button");
         botao.type = "button";
         botao.className = "card-projeto__ver-mais";
-        botao.innerHTML = `Ver mais
+        botao.innerHTML = `${textos.verMais}
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M5 12h14" /><path d="M12 5l7 7-7 7" />
             </svg>`;
